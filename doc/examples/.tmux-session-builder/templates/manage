@@ -1,0 +1,59 @@
+send-keys -t {{ tmux_session_name }}:0 'vim ~/client-orgs/acme/acme-billing/timetracker' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:1 "vim -c 'vnew ~/client-orgs/acme/acme-planning/todo.rst' -c 'vertical resize 100' -c 'wincmd l' ~/client-orgs/acme/acme-knowledge/team-notes.rst" C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:2 'vim ~/client-orgs/acme/acme-knowledge/people-networking.rst' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:3 'vim ~/client-orgs/acme/acme-knowledge/journal.rst' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:4 'vim ~/client-orgs/acme/acme-webbrowserstart/acme-launchpad' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:5 'cd ~/client-orgs/acme/acme-webbrowserstart' ENTER
+send-keys -t {{ tmux_session_name }}:5 'ls -la' ENTER
+send-keys -t {{ tmux_session_name }}:5 'make'
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:6 C-l 'cd ~/client-orgs/acme/gitclones/configuration-microsoft-365-mso' ENTER
+send-keys -t {{ tmux_session_name }}:6 'git fetch'
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:7 C-l 'cd ~/client-orgs/acme/gitclones/configuration-microsoft-365-mso' ENTER
+send-keys -t {{ tmux_session_name }}:7 'git commit -v'
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:8 C-l 'cd ~/client-orgs/acme/gitclones/configuration-microsoft-365-mso' ENTER
+send-keys -t {{ tmux_session_name }}:8 'clear; git diff --cached'
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:9 C-l 'cd ~/client-orgs/acme/gitclones/configuration-microsoft-365-mso' ENTER
+send-keys -t {{ tmux_session_name }}:9 'tig'
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:10 'vim ~/client-orgs/acme/gitclones/configuration-microsoft-365-mso/Outlook-Rules-and-Alerts.md' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:11 C-l 'cd ~/client-orgs/acme/acme-billing' ENTER
+send-keys -t {{ tmux_session_name }}:11 'git commit -v'
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:12 C-l 'cd ~/client-orgs/acme/acme-billing' ENTER
+send-keys -t {{ tmux_session_name }}:12 'clear; git diff --cached'
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:13 C-l 'cd ~/client-orgs/acme/acme-billing' ENTER
+send-keys -t {{ tmux_session_name }}:13 'tig'
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:14 'vim ~/client-orgs/acme/acme-billing/billingservice-tracking/billingservice-tracking.rst' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:15 C-l 'cd ~/client-orgs/acme/acme-billing/billingservice-tracking' ENTER
+send-keys -t {{ tmux_session_name }}:15 'ls -la' ENTER
+send-keys -t {{ tmux_session_name }}:15 'make'
+
+select-window -t {{ tmux_session_name }}:0

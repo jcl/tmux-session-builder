@@ -1,0 +1,68 @@
+send-keys -t {{ tmux_session_name }}:0 'ssh-add -l' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:1 'vim ~/.ssh-acme/config.d-available/20-hosts-nonprod' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:2 'vim ~/.ssh/known_hosts' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:3 'ssh discovery' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:4 'ssh infra-deploy-nonprod-8be555' C-l
+
+new-window -t {{ tmux_session_name }}
+send-keys -t {{ tmux_session_name }}:5 'ssh cibuilder-6b3dcb' C-l
+
+new-window -t {{ tmux_session_name }}
+split-window -p 83 -t {{ tmux_session_name }}:6
+split-window -p 83 -t {{ tmux_session_name }}:6
+split-window -p 83 -t {{ tmux_session_name }}:6
+split-window -p 83 -t {{ tmux_session_name }}:6
+split-window -p 83 -t {{ tmux_session_name }}:6
+select-layout -t {{ tmux_session_name }}:6 tiled
+send-keys -t {{ tmux_session_name }}:6.0 'ssh httpsrv-joi-test-20240202-a' C-l
+send-keys -t {{ tmux_session_name }}:6.1 'ssh httpsrv-joi-test-20240202-b' C-l
+send-keys -t {{ tmux_session_name }}:6.2 'ssh httpsrv-joi-preprod-20240109-a' C-l
+send-keys -t {{ tmux_session_name }}:6.3 'ssh httpsrv-joi-preprod-20240109-b' C-l
+send-keys -t {{ tmux_session_name }}:6.4 'ssh httpsrv-joi-prod-20231114-a' C-l
+send-keys -t {{ tmux_session_name }}:6.5 'ssh httpsrv-joi-prod-20231114-b' C-l
+set-option -w -t {{ tmux_session_name }}:6 synchronize-panes on
+
+new-window -t {{ tmux_session_name }}
+split-window -p 83 -t {{ tmux_session_name }}:7
+split-window -p 83 -t {{ tmux_session_name }}:7
+split-window -p 83 -t {{ tmux_session_name }}:7
+split-window -p 83 -t {{ tmux_session_name }}:7
+select-layout -t {{ tmux_session_name }}:7 even-vertical
+send-keys -t {{ tmux_session_name }}:7.0 'ssh batchexec-nonprod-q' C-l
+send-keys -t {{ tmux_session_name }}:7.1 'ssh batchexec-nonprod-r' C-l
+send-keys -t {{ tmux_session_name }}:7.2 'ssh batchexec-nonprod-s' C-l
+send-keys -t {{ tmux_session_name }}:7.3 'ssh batchexec-nonprod-t' C-l
+send-keys -t {{ tmux_session_name }}:7.4 'ssh batchexec-nonprod-v' C-l
+set-option -w -t {{ tmux_session_name }}:7 synchronize-panes on
+
+new-window -t {{ tmux_session_name }}
+split-window -p 83 -t {{ tmux_session_name }}:8
+split-window -p 83 -t {{ tmux_session_name }}:8
+split-window -p 83 -t {{ tmux_session_name }}:8
+select-layout -t {{ tmux_session_name }}:8 even-vertical
+send-keys -t {{ tmux_session_name }}:8.0 'ssh cswarm-nonprod-a' C-l
+send-keys -t {{ tmux_session_name }}:8.1 'ssh cswarm-nonprod-b' C-l
+send-keys -t {{ tmux_session_name }}:8.2 'ssh cswarm-nonprod-c' C-l
+send-keys -t {{ tmux_session_name }}:8.3 'ssh cswarm-nonprod-d' C-l
+set-option -w -t {{ tmux_session_name }}:8 synchronize-panes on
+
+new-window -t {{ tmux_session_name }}
+split-window -p 83 -t {{ tmux_session_name }}:9
+split-window -p 83 -t {{ tmux_session_name }}:9
+split-window -p 83 -t {{ tmux_session_name }}:9
+select-layout -t {{ tmux_session_name }}:9 even-vertical
+send-keys -t {{ tmux_session_name }}:9.0 'ssh cswarm-prod-a' C-l
+send-keys -t {{ tmux_session_name }}:9.1 'ssh cswarm-prod-b' C-l
+send-keys -t {{ tmux_session_name }}:9.2 'ssh cswarm-prod-c' C-l
+send-keys -t {{ tmux_session_name }}:9.3 'ssh cswarm-prod-d' C-l
+set-option -w -t {{ tmux_session_name }}:9 synchronize-panes on
+
+select-window -t {{ tmux_session_name }}:0
