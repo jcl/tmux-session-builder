@@ -41,17 +41,14 @@ Per-user configuration::
     #     export PATH="~/.tmux-session-builder/sessionscripts:$PATH"
 
 
-    # the following commands sets up the included example templates and
-    # session definitions:
-    #
-    # * templates: from below doc/examples/.tmux-session-builder/templates/
-    # * sessions: hardcoded (for now) in bin/tmux-session-builder
-    #
     # execute the following commands in the root of the cloned
     # tmux-session-builder.git directory:
 
+    # create symlink to tmux-session-builder in well-known place:
     ln -s -f "$(realpath bin/tmux-session-builder)" ~/.tmux-session-builder/
 
+    # the following commands sets up the included example templates and
+    # sessionscripts:
     cp doc/examples/.tmux-session-builder/templates/manage ~/.tmux-session-builder/templates/
     cp doc/examples/.tmux-session-builder/sessionscripts/,manage ~/.tmux-session-builder/sessionscripts/
 
