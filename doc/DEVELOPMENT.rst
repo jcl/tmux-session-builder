@@ -36,5 +36,9 @@ Development TO-DO
 IDEAS
 =====
 
+* In ``bin/tmux-session-builder``:
+  If ``$_tsb_use_template`` is not defined, fallback to using the session name
+  as the template filename.
+
 * Add code that tests for dependencies (and for some, if we have the right
   ones/minimum versions)
