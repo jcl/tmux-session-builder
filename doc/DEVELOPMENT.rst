@@ -26,7 +26,7 @@ Shell commands for test environment::
 
 Shell command for deleting *everything*::
 
-    find ~/bin -maxdepth 1 -not -type d -name ',*' -delete ; rm -rf ~/.tmux-session-builder ; rm -rf ~/client-orgs
+    rm -rf ~/.tmux-session-builder ; rm -rf ~/client-orgs
 
 
 Development TO-DO
