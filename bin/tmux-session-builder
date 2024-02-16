@@ -87,12 +87,6 @@ __build_session_unless_exist() {
 
 
 
-# ----- test if we have our dependencies (and for some, if we have the right ones):
-#
-# -----
-
-
-
 # ----- parse command arguments:
 #
 
