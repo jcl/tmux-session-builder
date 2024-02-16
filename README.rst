@@ -31,8 +31,8 @@ Per-user configuration::
                ~/.tmux-session-builder/templates \
                ~/.tmux-session-builder
 
-    # change your shell configuration file(s) (eg. ~/.bashrc) to include this
-    # path in the PATH environment variable:
+    # change your shell configuration file(s) (eg. ~/.profile , ~/.bashrc) to
+    # include this path in the PATH environment variable:
     #
     #     ~/.tmux-session-builder/sessionscripts
     #
