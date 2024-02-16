@@ -7,7 +7,8 @@ This repository contains `tmux-session-builder`: A simple tmux_ session creator:
 
 * Automates creation of tmux sessions, windows, panes, keyboard input, etc.
 * Written in POSIX compliant shell (``/bin/sh``), utilizing dependencies:
-  GNU coreutils (``cat``, ``date``, ``mktemp``, ``tee``), GNU sed (``sed``).
+    - GNU coreutils (``cat``, ``date``, ``mktemp``, ``tee``)
+    - GNU sed (``sed``)
 
 .. _tmux: https://github.com/tmux/tmux/wiki
 
