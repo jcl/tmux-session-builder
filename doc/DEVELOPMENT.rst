@@ -27,3 +27,14 @@ Shell commands for test environment::
 Shell command for deleting *everything*::
 
     find ~/bin -maxdepth 1 -not -type d -name ',*' -delete ; rm -rf ~/.tmux-session-builder ; rm -rf ~/client-orgs
+
+
+Development TO-DO
+=================
+
+
+IDEAS
+=====
+
+* Add code that tests for dependencies (and for some, if we have the right
+  ones/minimum versions)
