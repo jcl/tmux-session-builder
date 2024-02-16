@@ -1,6 +1,7 @@
-#!/bin/sh
-
 # tmux-session-builder
+#
+# This POSIX shell (/bin/sh) script is intended to be sourced from other
+# scripts, and not executed directly.
 
 
 __script_identification="tmux-session-builder"
@@ -87,19 +88,48 @@ __build_session_unless_exist() {
 
 
 
-# ----- parse command arguments:
-#
+_tsb_start() {
+    # _tsb_start():
+    #     Input data, required:
+    #     * tmux session name string: will derive and validate this from $0 .
+    #     * template filename: read from variable $_tsb_use_template .
 
-# learned the ${0##*/} method from /bin/lzcmp on a Ubuntu 20.04 system.
+
+    # attempt to derive the session name from $0,
+    # bail if we fail to get a valid name:
+    #
+    # learned the ${0##*/} method from /bin/lzcmp on a Ubuntu 20.04 system.
+
+    __debug "value of \${0}: ${0}"
+    __debug "value of \${0##*/}: ${0##*/}"
+
+    ___argv0_basename="${0##*/}"
+    __debug "value of \$___argv0_basename: ${___argv0_basename}"
+
+    case "${___argv0_basename}" in
+        ,[a-z]* ) ___session_name="${___argv0_basename##,}";
+                  __debug "value of \$___session_name: ${___session_name}" ;;
+        * )       __bail 'sessionscript filename invalid: must be 2 or more' \
+                         'characters, first characters must be ",", and' \
+                         'second character must match shell pattern [a-z]' ;;
+    esac
 
 
-__debug "value of \${0}: ${0}"
-__debug "value of \${0##*/}: ${0##*/}"
+    # attempt to read the template filename from ${_tsb_use_template},
+    # bail if we fail to get a valid filename:
 
-case "${0##*/}" in
+    __debug "value of \$_tsb_use_template: $_tsb_use_template"
+
+    case "${_tsb_use_template}" in
+        [a-z]* ) ___template_name="${_tsb_use_template}";
+                 __debug "value of \$___template_name: ${___template_name}" ;;
+        * )      __bail 'template filename invalid: must be 1 or more' \
+                        'characters, and first character must match shell' \
+                        'pattern [a-z]' ;;
+    esac
+
+
     # "attach-session" aka. "attach"
-    ',manage' )      __build_session_unless_exist manage      manage  && tmux attach-session -d -t manage ;;
-    ',sshsessions' ) __build_session_unless_exist sshsessions srv-all && tmux attach-session -d -t sshsessions ;;
-    * )              __bail "script called by unknown name" ;;
-esac
-# -----
+    __build_session_unless_exist "${___session_name}" "${___template_name}" \
+        && tmux attach-session -d -t "${___session_name}"
+}

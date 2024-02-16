@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. ~/.tmux-session-builder/tmux-session-builder
+
+_tsb_use_template='manage'
+
+_tsb_start
