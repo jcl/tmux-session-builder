@@ -40,5 +40,23 @@ IDEAS
   If ``$_tsb_use_template`` is not defined, fallback to using the session name
   as the template filename.
 
+* Support custom Jinja-like variables, similar to ``{{ tmux_session_name }}``:
+
+    - ``_tsb_variables`` is set in the sessionscript:
+      set to a space separated list of Jinja-like variables to replace in the
+      copied template file content.  Variables must only be lower-case ASCII
+      alphabet letters and underscore.  Example: ``environment_instance`` will
+      replace the string ``{{ environment_instance }}`` .
+
+    - The string to replace a given Jinja-like variable with, is expected to
+      be found in the variable ``_tsb_var_$VARIABLE``.  So the replacement for
+      ``{{ environment_instance }}`` will be the contents of the sessionscript
+      variable ``_tsb_var_environment_instance`` .
+
+  Try to use ``eval`` to generate the variable name:
+  https://unix.stackexchange.com/questions/41406/use-a-variable-reference-inside-another-variable
+
+  Only activate this code path if ``_tsb_variables`` variable is defined.
+
 * Add code that tests for dependencies (and for some, if we have the right
   ones/minimum versions)
