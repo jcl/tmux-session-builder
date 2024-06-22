@@ -40,6 +40,31 @@ IDEAS
   If ``$_tsb_use_template`` is not defined, fallback to using the session name
   as the template filename.
 
+* Add support for `XDG Base Directory Specification` configuration directory:
+
+  Rough draft for how the code should choose configuration directory:
+
+    - If defined+exists+accessible, use:
+      ``${XDG_CONFIG_HOME}/tmux-session-builder/``
+
+    - Else, if exists+accessible, use:
+      ``~/.config/tmux-session-builder/``
+
+    - Else, if exists+accessible, use:
+      ``~/.tmux-session-builder/``
+
+  Related link dump:
+
+      | https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+      | https://wiki.archlinux.org/title/XDG_Base_Directory
+      | https://superuser.com/questions/365847/where-should-the-xdg-config-home-variable-be-defined/425712#425712
+      | https://xdgbasedirectoryspecification.com/
+      | https://unix.stackexchange.com/questions/537529/how-do-i-get-xdg-config-home-from-a-shell-script-command-line
+      | https://www.ctrl.blog/entry/xdg-basedir-scripting.html
+
+  This is the HN comment that made me add this idea:
+  [April 2024] https://news.ycombinator.com/item?id=40086638
+
 * Support custom Jinja-like variables, similar to ``{{ tmux_session_name }}``:
 
     - ``_tsb_variables`` is set in the sessionscript:
